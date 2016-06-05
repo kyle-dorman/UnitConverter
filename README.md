@@ -31,7 +31,7 @@ Build an app that allows a user to input a temperature in Celsius, and to conver
 1. View controllers, picker views and many other UI elements in iOS (& tvOS, watchOS ect.) rely on a delegate and a datasource reference. There are many reasons for doing this. It creates more composable elements, abstracts complexity, and enables better memory managment. Please look over [this](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html) resource. 
 2. To have data to scroll through in our picker view, we need to add a datasource. Add a new Swift file to the project inside Sources called TemperatureRange. Create a class with the same name. 
 
-	![add swift file](https://github.com/kyle-dorman/UnitConverter/raw/master/ReadmeImages/AddSwiftFile.png "swift file")
+	![add swift file](https://github.com/kyle-dorman/UnitConverter/raw/master/ReadmeImages/AddSwiftFile "swift file")
 2. Add `import UIKit` and remove `import Foundation`
 3. Have the class inherit from `NSObject` and ` UIPickerViewDataSource`. `NSObject` should be first b/c it is the class our class is [inheriting](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Inheritance.html) from while `UIPickerViewDataSource` is a protocol.
 4. At this point the compiler will complain b/c your new class does not contain all the methods in the UIPickerViewProtocol. CMD Click the `UIPickerViewDataSource` in XCode to see the two methods you need to impliment. Add the two required methods, returning whatever values you want. 
