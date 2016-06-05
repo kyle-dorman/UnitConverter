@@ -9,10 +9,10 @@ Build an app that allows a user to input a temperature in Celsius, and to conver
 3. Run the tests (CMD U). Make sure all tests pass. Open the debug area (bottom pannel) to see output.
 
 ## Step 2: Add a label
-1. Add a UILabel named "temperatureLabel" to the view controller. 
+1. Add a `UILabel` named `temperatureLabel` to the view controller. 
 2. Instantiate the label before the call to `super.init`
 3. Add the label to the view hierarchy by calling [view.addSubview](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/#//apple_ref/occ/instm/UIView/addSubview:) before the call to [super.viewDidLoad](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/#//apple_ref/occ/instm/UIViewController/viewDidLoad)
-4. Add text to the [label](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UILabel_Class/#//apple_ref/occ/instp/UILabel/text)
+4. Add [text]((https://developer.apple.com/library/ios/documentation/UIKit/Reference/UILabel_Class/#//apple_ref/occ/instp/UILabel/text) to the label.
 5. Because we are going to use a constrant based layout, set the label's [translatesAutoresizingMaskIntoConstraints](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/#//apple_ref/occ/instp/UIView/translatesAutoresizingMaskIntoConstraints) to false.
 6. Add two constraints to the label. The first, sets the [topAnchor](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UILayoutGuide_Class_Reference/#//apple_ref/occ/instp/UILayoutGuide/topAnchor) of the label 30 pixels below the top of the view controller's view. The second, centers the label horizontally. 
 
@@ -24,24 +24,26 @@ Build an app that allows a user to input a temperature in Celsius, and to conver
 
 ## Step 3: Add a picker view
 1. If you don't know what a picker view is, look [here](https://www.google.com/search?q=uipickerview+example&espv=2&biw=1440&bih=779&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjzttyS2JHNAhWJ4D4KHRX7DjQQ_AUIBygC#imgrc=scx7Kq9AB3Bj1M%3A)
-2. Repeate the steps above and add a UIPickerView named "celciusPickerView". The picker view should be centered horizontally and 100 pixels below the bottom of the label. Good luck!
+2. Repeate the steps above and add a `UIPickerView` named `celciusPickerView`. The picker view should be centered horizontally and 100 pixels below the bottom of the label. Good luck!
 3. Run the app. If you see two grey lines in the center of the screen, good job you added a picker view. 
 
 ## Step 4: Add data to the picker view
 1. View controllers, picker views and many other UI elements in iOS (& tvOS, watchOS ect.) rely on a delegate and a datasource reference. There are many reasons for doing this. It creates more composable elements, abstracts complexity, and enables better memory managment. Please look over [this](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html) resource. 
 2. To have data to scroll through in our picker view, we need to add a datasource. Add a new Swift file to the project inside Sources called TemperatureRange. Create a class with the same name. 
+
+	![add swift file](https://github.com/kyle-dorman/UnitConverter/raw/master/ReadmeImages/AddSwiftFile.png "swift file")
 2. Add `import UIKit` and remove `import Foundation`
-3. Have the class inherit from `NSObject` and ` UIPickerViewDataSource`. NSObject should be first b/c it is the class our class is [inheriting](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Inheritance.html) from while UIPickerViewDataSource is a protocol.
-4. At this point the compiler will complain b/c your new class does not contain all the methods in the UIPickerViewProtocol. CMD Click the UIPickerViewDataSource in XCode to see the two methods you need to impliment. Add the two required methods, returning whatever values you want. 
+3. Have the class inherit from `NSObject` and ` UIPickerViewDataSource`. `NSObject` should be first b/c it is the class our class is [inheriting](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Inheritance.html) from while `UIPickerViewDataSource` is a protocol.
+4. At this point the compiler will complain b/c your new class does not contain all the methods in the UIPickerViewProtocol. CMD Click the `UIPickerViewDataSource` in XCode to see the two methods you need to impliment. Add the two required methods, returning whatever values you want. 
 
 	![compiler error](https://github.com/kyle-dorman/UnitConverter/raw/master/ReadmeImages/UnitConverterError.png "compiler error")
 5. Run the app. 
 6. Nothing happened? Why? Because we forgot to tell the UI element about its new fancy data source. 
-7. Add a let variable "temperatureRange" to the view controller with type TemperatureRange. 
-8. Instantiate the TemperatureRange before the `super.init`
-9. AFTER (not before) the `super.init` set the uipickerview's [datasource](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIPickerView_Class/#//apple_ref/occ/instp/UIPickerView/dataSource) to the unit converter. 
+7. Add a let variable `temperatureRange` to the view controller with type `TemperatureRange`. 
+8. Instantiate the `TemperatureRange` before the `super.init`
+9. AFTER (not before) the `super.init` set the `UIPickerView`'s [datasource](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIPickerView_Class/#//apple_ref/occ/instp/UIPickerView/dataSource) to the unit converter. 
 10. Run the app. If you see question marks, good job! 
-11. Our class is called TemperatureRange but we haven't actually created a temperature range. Create an array called "values" with all the values you think someone might want to convert from Celcius to Faherenheit. There are many ways to do this. One way is to creae a [Range](http://swiftdoc.org/v2.2/type/Range/) and convert it to an array. Confused? Use Google. 
+11. Our class is called `TemperatureRange` but we haven't actually created a temperature range. Create an array called `values` with all the values you think someone might want to convert from Celcius to Faherenheit. There are many ways to do this. One way is to creae a [Range](http://swiftdoc.org/v2.2/type/Range/) and convert it to an array. Confused? Use Google. 
 12. Instead of using random values for our two DataSource functions, return 1 for number of sections and the [count](http://swiftdoc.org/v2.2/protocol/CollectionType/#var-count_-self-index-distance) for the number of rows. 
 13. Run the app. Still seeing question marks? Good. 
 
