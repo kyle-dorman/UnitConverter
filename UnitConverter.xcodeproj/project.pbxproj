@@ -15,6 +15,8 @@
 		5901E1301D04A77E002FADAA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5901E12E1D04A77E002FADAA /* Info.plist */; };
 		5901E1311D04A788002FADAA /* Info-test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5901E12D1D04A77E002FADAA /* Info-test.plist */; };
 		5901E1331D04A972002FADAA /* UnitConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5901E1251D04A6AE002FADAA /* UnitConverterTests.swift */; };
+		5901E1351D04AEAD002FADAA /* UnitConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5901E1341D04AEAD002FADAA /* UnitConverterViewController.swift */; };
+		5901E1391D04AFF1002FADAA /* UnitConverterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5901E1381D04AFF1002FADAA /* UnitConverterViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		5901E12A1D04A754002FADAA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5901E12D1D04A77E002FADAA /* Info-test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-test.plist"; sourceTree = "<group>"; };
 		5901E12E1D04A77E002FADAA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5901E1341D04AEAD002FADAA /* UnitConverterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConverterViewController.swift; sourceTree = "<group>"; };
+		5901E1381D04AFF1002FADAA /* UnitConverterViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConverterViewControllerTests.swift; sourceTree = "<group>"; };
 		F96E6C931B0698880088267A /* UnitConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96E6CA81B0698880088267A /* UnitConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -65,6 +69,7 @@
 				5901E11A1D04A694002FADAA /* TemperatureRange.swift */,
 				5901E11B1D04A694002FADAA /* UnitConverter.swift */,
 				5901E11C1D04A694002FADAA /* ViewController.swift */,
+				5901E1341D04AEAD002FADAA /* UnitConverterViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -73,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				5901E1251D04A6AE002FADAA /* UnitConverterTests.swift */,
+				5901E1381D04AFF1002FADAA /* UnitConverterViewControllerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 				5901E1201D04A694002FADAA /* TemperatureRange.swift in Sources */,
 				5901E1221D04A694002FADAA /* ViewController.swift in Sources */,
 				5901E11D1D04A694002FADAA /* AppDelegate.swift in Sources */,
+				5901E1351D04AEAD002FADAA /* UnitConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5901E1331D04A972002FADAA /* UnitConverterTests.swift in Sources */,
+				5901E1391D04AFF1002FADAA /* UnitConverterViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +379,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "BuildControl/Info-test.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -388,6 +397,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "BuildControl/Info-test.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

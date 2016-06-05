@@ -7,7 +7,7 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate {
+class ViewController: UIViewController {
 
     private let userDefaultsLastRowKey = "defaultCelsiusPickerRow"
 
@@ -60,17 +60,6 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         NSLayoutConstraint.activateConstraints(dynamicConstraints)
     }
 
-    // MARK: UIPickerViewDelegate
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let celsiusValue = temperatureRange.values[row]
-        return "\(celsiusValue)°C"
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        displayConvertedTemperatureForRow(row)
-        saveSelectedRow(row)
-    }
-
     // MARK: Private
     private func initialPickerRow() -> Int {
         let savedRow = NSUserDefaults.standardUserDefaults().objectForKey(userDefaultsLastRowKey) as? Int
@@ -79,6 +68,23 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         } else {
             return celsiusPicker.numberOfRowsInComponent(0) / 2
         }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ViewController: UIPickerViewDelegate {
+    // MARK: UIPickerViewDelegate
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let celsiusValue = temperatureRange.values[row]
+        return "\(celsiusValue)°C"
+    }
+
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        displayConvertedTemperatureForRow(row)
+        saveSelectedRow(row)
     }
 
     private func displayConvertedTemperatureForRow(row: Int) {
@@ -90,10 +96,6 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(row, forKey: userDefaultsLastRowKey)
         defaults.synchronize()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 

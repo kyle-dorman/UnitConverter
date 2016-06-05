@@ -5,7 +5,6 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 
 */
 
-import UIKit
 import XCTest
 
 class UnitConverterTests: XCTestCase {
@@ -22,7 +21,7 @@ class UnitConverterTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        XCTAssertTrue(true, "Passed example test.")
     }
     
 }
